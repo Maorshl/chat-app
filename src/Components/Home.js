@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "firebase/firestore";
 import firebase from "firebase/app";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import NewRoom from "./NewRoom";
 const firestore = firebase.firestore();
 
 function Home(props) {
@@ -14,14 +15,22 @@ function Home(props) {
     <div>
       <Router>
         <Route exact path="/">
-          {rooms &&
-            rooms.map((room) => {
-              return <Link to={`/chatroom/${room.id}`}>{room.name}</Link>;
-            })}
+          <div className="rooms">
+            {rooms &&
+              rooms.map((room) => {
+                return <Link to={`/chatroom/${room.id}`}>{room.name}</Link>;
+              })}
+          </div>
         </Route>
         <Switch>
-          <Route path="/chatroom/:roomId" component={ChatRoom}></Route>
+          <Route exact path="/chatroom/:roomId" component={ChatRoom}></Route>
+          <Route exact path="/newroom">
+            <NewRoom />
+          </Route>
         </Switch>
+        <div>
+          <Link to="/newroom">New Room</Link>
+        </div>
       </Router>
     </div>
   );

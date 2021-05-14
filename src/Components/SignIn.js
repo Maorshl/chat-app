@@ -2,6 +2,9 @@ import React from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookSquare } from "react-icons/fa";
+
 firebase.initializeApp({
   apiKey: "AIzaSyBeqwhOX4Q720nbLj7S8k7QBfVhWSZrqgU",
   authDomain: "chat-app-8fa84.firebaseapp.com",
@@ -18,9 +21,19 @@ function SignIn(props) {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
+  const signInWithFacebook = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider);
+  };
   return (
     <div>
-      <button onClick={signInWithGoogle}>Sign In with google!</button>
+      <button>
+        <FcGoogle onClick={signInWithGoogle} />
+      </button>
+
+      <button onClick={signInWithFacebook}>
+        <FaFacebookSquare />
+      </button>
     </div>
   );
 }
