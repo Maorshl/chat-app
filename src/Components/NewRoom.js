@@ -20,6 +20,9 @@ function NewRoom(props) {
     setFormValue("");
     setCreated(true);
   };
+  if (created) {
+    return <Redirect to="/" />;
+  }
   return (
     <div>
       <h1>Create a new room</h1>
@@ -35,7 +38,6 @@ function NewRoom(props) {
         ></input>
         <button type="submit">Create</button>
       </form>
-      {created && <Redirect path="/" />}
     </div>
   );
 }

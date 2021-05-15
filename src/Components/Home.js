@@ -12,13 +12,21 @@ function Home(props) {
   const query = roomsRef.orderBy("name");
   const [rooms] = useCollectionData(query, { idField: "id" });
   return (
-    <div>
+    <div className="main-menu">
       <Router>
         <Route exact path="/">
           <div className="rooms">
             {rooms &&
-              rooms.map((room) => {
-                return <Link to={`/chatroom/${room.id}`}>{room.name}</Link>;
+              rooms.map((room, i) => {
+                return (
+                  <Link
+                    key={i}
+                    to={`/chatroom/${room.id}`}
+                    className="room-link"
+                  >
+                    {room.name}
+                  </Link>
+                );
               })}
           </div>
         </Route>
@@ -29,7 +37,7 @@ function Home(props) {
           </Route>
         </Switch>
         <div>
-          <Link to="/newroom">New Room</Link>
+          <Link to="/newroom">Make a new Room</Link>
         </div>
       </Router>
     </div>

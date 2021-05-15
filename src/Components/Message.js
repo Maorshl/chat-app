@@ -6,8 +6,11 @@ function Message({ message }) {
     message.uid === auth.currentUser.uid ? "send" : "received";
   return (
     <div className={`${messageClass} message`}>
-      <img className="message-pic" src={message.photoURL} alt="Profile"></img>
-      <p>{message.text}</p>
+      <div className="message-pic-name">
+        <img className="message-pic" src={message.photoURL} alt="Profile"></img>
+        <span className="message-name">{message.displayName}</span>
+      </div>
+      <span className="text">{message.text}</span>
     </div>
   );
 }

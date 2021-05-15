@@ -5,6 +5,7 @@ import "firebase/auth";
 import SignIn from "./SignIn";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Home from "./Home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const auth = firebase.auth();
 
@@ -13,8 +14,20 @@ function App() {
 
   return (
     <div className="App">
-      {user ? <Home /> : <SignIn />}
-      {user && <button onClick={() => auth.signOut()}>Sign Out</button>}
+      <nav>
+        <ul className="navbarlist">
+          <li className="navbarli">
+            {user && <button onClick={() => auth.signOut()}>Sign Out</button>}
+          </li>
+          <li className="navbarli">
+            <a href="/" className="navbar-button">
+              Home
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main>{user ? <Home /> : <SignIn />}</main>
     </div>
   );
 }
