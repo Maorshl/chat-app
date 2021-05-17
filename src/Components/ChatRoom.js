@@ -9,6 +9,10 @@ const auth = firebase.auth();
 
 function ChatRoom({ match }) {
   const messagesRef = firestore.collection("messages");
+  // const roomsRef = firestore.collection("rooms");
+  // const query2 = roomsRef.doc(`${match.params.roomId}`);
+  // const [room] = useCollectionData(query2);
+  // console.log(room);
   // let query = messagesRef.where("roomId", "==", match.params.roomId);
   let query = messagesRef
     .where("roomId", "==", match.params.roomId)
