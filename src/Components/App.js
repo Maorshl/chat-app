@@ -24,9 +24,15 @@ function App() {
               Home
             </a>
           </li>
+          <li className="navbarli">
+            {user && (
+              <a className="navbar-button" href="/newroom">
+                Create a new chat room
+              </a>
+            )}
+          </li>
         </ul>
       </nav>
-
       <main>{user ? <Home /> : <SignIn />}</main>
     </div>
   );

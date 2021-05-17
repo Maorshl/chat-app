@@ -55,7 +55,6 @@ function ChatRoom({ match }) {
         ></input>
         <button type="submit">🕊️</button>
       </form>
-      <Link to="/">Home</Link>
     </div>
   );
 }

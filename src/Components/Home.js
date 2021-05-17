@@ -5,6 +5,7 @@ import "firebase/firestore";
 import firebase from "firebase/app";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import NewRoom from "./NewRoom";
+import SignUp from "./SignUp";
 const firestore = firebase.firestore();
 
 function Home(props) {
@@ -35,10 +36,10 @@ function Home(props) {
           <Route exact path="/newroom">
             <NewRoom />
           </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
         </Switch>
-        <div>
-          <Link to="/newroom">Make a new Room</Link>
-        </div>
       </Router>
     </div>
   );

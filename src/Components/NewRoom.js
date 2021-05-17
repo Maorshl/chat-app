@@ -27,8 +27,8 @@ function NewRoom(props) {
     <div>
       <h1>Create a new room</h1>
       <form onSubmit={createRoom} className="new-room-form">
-        <label>Name</label>
         <input
+          className="new-room-name"
           value={formValue}
           onChange={(e) => {
             setFormValue(e.target.value);
