@@ -22,4 +22,4 @@
 
  - When sending a message a it is sent to fireStore and using firebase useCollectionData the messages renders on every new message coming.
 
- - The app is hosted on firebase hosting and you can try for yourself: [Chat-app](www.chat-app-8fa84.com)
+ - The app is hosted on firebase hosting and you can try for yourself: [Chat-app](https://chat-app-8fa84.web.app/)
