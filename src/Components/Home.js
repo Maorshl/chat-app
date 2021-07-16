@@ -36,9 +36,6 @@ function Home(props) {
           <Route exact path="/newroom">
             <NewRoom />
           </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
         </Switch>
       </Router>
     </div>
