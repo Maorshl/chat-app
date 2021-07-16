@@ -5,10 +5,9 @@ import "firebase/firestore";
 import firebase from "firebase/app";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import NewRoom from "./NewRoom";
-import SignUp from "./SignUp";
 const firestore = firebase.firestore();
 
-function Home(props) {
+function Home({ user }) {
   const roomsRef = firestore.collection("rooms");
   const query = roomsRef.orderBy("name");
   const [rooms] = useCollectionData(query, { idField: "id" });
@@ -23,7 +22,11 @@ function Home(props) {
                   <Link
                     key={i}
                     to={`/chatroom/${room.id}`}
-                    className="room-link"
+                    className={
+                      room.createdBy === user.uid
+                        ? "created-by-user"
+                        : "room-link"
+                    }
                   >
                     {room.name}
                   </Link>
