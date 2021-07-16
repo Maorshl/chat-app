@@ -13,27 +13,29 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
-      <nav>
-        <ul className="navbarlist">
-          <li className="navbarli">
-            {user && <button onClick={() => auth.signOut()}>Sign Out</button>}
-          </li>
-          <li className="navbarli">
-            <a href="/" className="navbar-button">
-              Home
-            </a>
-          </li>
-          <li className="navbarli">
-            {user && (
-              <a className="navbar-button" href="/newroom">
-                Create a new chat room
+    <div className="background">
+      <div className="App">
+        <nav>
+          <ul className="navbarlist">
+            <li className="navbarli">
+              {user && <button onClick={() => auth.signOut()}>Sign Out</button>}
+            </li>
+            <li className="navbarli">
+              <a href="/" className="navbar-button">
+                Home
               </a>
-            )}
-          </li>
-        </ul>
-      </nav>
-      <main>{user ? <Home /> : <SignIn />}</main>
+            </li>
+            <li className="navbarli">
+              {user && (
+                <a className="navbar-button" href="/newroom">
+                  Create a new chat room
+                </a>
+              )}
+            </li>
+          </ul>
+        </nav>
+        <main>{user ? <Home /> : <SignIn auth={auth} />}</main>
+      </div>
     </div>
   );
 }
