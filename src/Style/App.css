@@ -71,7 +71,8 @@ html {
   max-width: fit-content;
   max-height: fit-content;
 }
-.room-link {
+.room-link,
+.created-by-user {
   text-decoration: none;
   width: fit-content;
   color: white;
@@ -80,9 +81,13 @@ html {
   width: 20%;
   margin: auto;
   background-color: black;
+  margin-top: 1rem;
 }
-
-.room-link:hover {
+.created-by-user {
+  background-color: #477eec;
+}
+.room-link:hover,
+.created-by-user:hover {
   background-color: rgb(0, 174, 255);
 }
 
