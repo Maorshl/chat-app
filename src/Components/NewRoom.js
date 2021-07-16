@@ -41,7 +41,15 @@ function NewRoom(props) {
           type="text"
           placeholder="Name"
         ></input>
-        <button onClick={() => setWantPrivate(true)}>
+        <button
+          onClick={() => {
+            if (!wantPrivate) {
+              setWantPrivate(true);
+            } else {
+              setWantPrivate(false);
+            }
+          }}
+        >
           I want the room to be private
         </button>
         {wantPrivate && (
