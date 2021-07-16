@@ -34,7 +34,7 @@ function App() {
             </li>
           </ul>
         </nav>
-        <main>{user ? <Home /> : <SignIn auth={auth} />}</main>
+        <main>{user ? <Home user={user} /> : <SignIn auth={auth} />}</main>
       </div>
     </div>
   );
